@@ -7,6 +7,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "EnhancedInputComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -62,8 +63,10 @@ void ATank::Move(const FInputActionValue& Value)
 	{
 		const FRotator Rotation = Controller->GetControlRotation();
 		FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
-
 		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+
+		// FRotator BaseRotation(0.f, BaseComponent->GetComponentRotation().Yaw, 0.f);
+		// const FVector ForwardDirection = FRotationMatrix(BaseRotation).GetUnitAxis(EAxis::X); 
 		AddMovementInput(ForwardDirection, MoveDir.Y);
 
 		// const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);

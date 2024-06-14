@@ -20,9 +20,9 @@ void ATurret::BeginPlay()
 
 // Called every frame
 void ATurret::Tick(float DeltaTime)
-{`
+{
 	Super::Tick(DeltaTime);
-	if (Target && FVector::Dist(Target->GetActorLocation(), GetActorLocation()) <= TurretRange)
+	if (InFireRange())
 	{
 		RotateTurret(Target->GetActorLocation());
 	}
@@ -31,7 +31,7 @@ void ATurret::Tick(float DeltaTime)
 
 void ATurret::CheckFireCondition()
 {
-	if (Target && FVector::Dist(Target->GetActorLocation(), GetActorLocation()) <= TurretRange)
+	if (InFireRange())
 	{
 		DrawDebugSphere(
 			GetWorld(),
@@ -44,4 +44,10 @@ void ATurret::CheckFireCondition()
 		);
 	}
 }
+
+bool ATurret::InFireRange()
+{
+	return Target && FVector::Dist(Target->GetActorLocation(), GetActorLocation()) <= TurretRange;
+}
+
 
