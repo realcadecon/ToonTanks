@@ -30,6 +30,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 
+	void RotateTurret(const FVector& Target);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
