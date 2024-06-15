@@ -7,6 +7,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "EnhancedInputComponent.h"
+#include "Projectile.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Kismet/GameplayStatics.h"
@@ -42,16 +43,13 @@ void ATank::BeginPlay()
 void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	FHitResult HitResult;
-	if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+	if (const APlayerController* PlayerController = Cast<APlayerController>(GetController()))
 	{
+		FHitResult HitResult;
 		PlayerController->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
-		DrawDebugSphere(GetWorld(),
-		                HitResult.ImpactPoint,
-		                10,
-		                5,
-		                FColor::Red);
 		RotateTurret(HitResult.ImpactPoint);
+		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Red);
+		
 	}
 }
 
@@ -89,16 +87,14 @@ void ATank::Look(const FInputActionValue& Value)
 void ATank::Fire(const FInputActionValue& Value)
 {
 	const bool Fire = Value.Get<bool>();
-	UE_LOG(LogTemp, Display, TEXT("Fire Called: Value = %d"), Fire);
 	if (Fire)
 	{
-		DrawDebugSphere(
-			GetWorld(),
+		AProjectile* SpawnedProjectile = GetWorld()->SpawnActor<AProjectile>(
+			ProjectileClass,
 			ProjectileSpawnPoint->GetComponentLocation(),
-			10,
-			10,
-			FColor::Red
+			ProjectileSpawnPoint->GetComponentRotation()
 		);
+		SpawnedProjectile->SetOwner(this);
 	}
 }
 

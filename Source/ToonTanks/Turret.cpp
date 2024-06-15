@@ -3,6 +3,7 @@
 
 #include "Turret.h"
 
+#include "Projectile.h"
 #include "Kismet/GameplayStatics.h"
 
 ATurret::ATurret()
@@ -33,15 +34,12 @@ void ATurret::CheckFireCondition()
 {
 	if (InFireRange())
 	{
-		DrawDebugSphere(
-			GetWorld(),
+		AProjectile* SpawnedProjectile = GetWorld()->SpawnActor<AProjectile>(
+			ProjectileClass,
 			ProjectileSpawnPoint->GetComponentLocation(),
-			10,
-			10,
-			FColor::Red,
-			true,
-			2.f
+			ProjectileSpawnPoint->GetComponentRotation()
 		);
+		SpawnedProjectile->SetOwner(this);
 	}
 }
 

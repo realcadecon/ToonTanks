@@ -32,6 +32,10 @@ protected:
 
 	void RotateTurret(const FVector& Target);
 
+	UPROPERTY(EditDefaultsOnly, Category = Combat)
+	TSubclassOf<class AProjectile> ProjectileClass;
+	
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

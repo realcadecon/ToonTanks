@@ -53,6 +53,7 @@ void ABasePawn::RotateTurret(const FVector &Target)
 }
 
 
+
 // Called to bind functionality to input
 void ABasePawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
