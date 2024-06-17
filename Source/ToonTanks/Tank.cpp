@@ -28,7 +28,8 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+	PlayerController = Cast<APlayerController>(GetController());
+	if (PlayerController)
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<
 			UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
@@ -43,15 +44,30 @@ void ATank::BeginPlay()
 void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (const APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+	PlayerController = Cast<APlayerController>(GetController());
+	if (PlayerController)
 	{
 		FHitResult HitResult;
 		PlayerController->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
 		RotateTurret(HitResult.ImpactPoint);
-		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Red);
-		
 	}
 }
+
+APlayerController* ATank::GetTankPlayerController()
+{
+	return PlayerController;
+}
+
+
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+	
+	//hide tank and disable tick
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+}
+
 
 void ATank::Move(const FInputActionValue& Value)
 {

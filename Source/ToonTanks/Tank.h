@@ -26,8 +26,11 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void HandleDestruction();
+
+	APlayerController* GetTankPlayerController();
 
 protected:
 	virtual void BeginPlay() override;
@@ -49,7 +52,7 @@ protected:
 	UFloatingPawnMovement* PawnMovement;
 
 	UPROPERTY(EditAnywhere)
-	float TurnRate = 45.f;
+	float TurnRate = 100.f;
 
 	void Move(const FInputActionValue& Value);
 
@@ -63,4 +66,6 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UCameraComponent* CameraComponent;
+
+	APlayerController* PlayerController;
 };

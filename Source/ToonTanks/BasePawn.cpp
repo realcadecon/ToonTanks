@@ -39,6 +39,13 @@ void ABasePawn::Tick(float DeltaTime)
 
 }
 
+void ABasePawn::HandleDestruction()
+{
+	//TODO:: Handle Visual/Sound Effects
+	
+}
+
+
 void ABasePawn::RotateTurret(const FVector &Target)
 {
 	FVector ToTarget = Target - TurretComponent->GetComponentLocation();

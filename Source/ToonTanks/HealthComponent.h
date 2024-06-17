@@ -27,6 +27,8 @@ private:
 	float MaxHealth = 100.f;
 	float Health = 0.f;
 
+	class AToonTanksGameMode* ToonTanksGameMode;
+
 	UFUNCTION()
 	void DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser);
 };
