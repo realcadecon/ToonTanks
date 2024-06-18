@@ -5,6 +5,7 @@
 
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "LegacyCameraShake.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -23,6 +24,7 @@ ABasePawn::ABasePawn()
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurretComponent);
 
+	
 }
 
 // Called when the game starts or when spawned
@@ -42,7 +44,18 @@ void ABasePawn::Tick(float DeltaTime)
 void ABasePawn::HandleDestruction()
 {
 	//TODO:: Handle Visual/Sound Effects
-	
+	if(DeathParticles)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticles, GetActorLocation(), GetActorRotation());
+	}
+	if(DeathSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation(), GetActorRotation());
+	}
+	if(CameraShakeClass)
+	{
+		GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(CameraShakeClass);
+	}
 }
 
 

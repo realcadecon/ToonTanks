@@ -38,7 +38,11 @@ void ATurret::HandleDestruction()
 
 void ATurret::CheckFireCondition()
 {
-	if (InFireRange())
+	if (!Target)
+	{
+		return;
+	}
+	if (InFireRange() && Target->bAlive)
 	{
 		AProjectile* SpawnedProjectile = GetWorld()->SpawnActor<AProjectile>(
 			ProjectileClass,
@@ -53,5 +57,3 @@ bool ATurret::InFireRange()
 {
 	return Target && FVector::Dist(Target->GetActorLocation(), GetActorLocation()) <= TurretRange;
 }
-
-

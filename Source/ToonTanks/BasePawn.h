@@ -44,5 +44,16 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+private:
+	UPROPERTY(EditAnywhere, Category = Combat)
+	UParticleSystem* DeathParticles;
+
+	UPROPERTY(EditAnywhere, Category = SoundEffects)
+	USoundBase* DeathSound;
+
+	UPROPERTY(EditAnywhere, Category = CameraEffects)
+	TSubclassOf<class ULegacyCameraShake> CameraShakeClass;
+
 	
 };

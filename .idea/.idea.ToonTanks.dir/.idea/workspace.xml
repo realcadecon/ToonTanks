@@ -9,18 +9,18 @@
   <component name="ChangeListManager">
     <list default="true" id="bedc1602-4fc7-465d-9be1-542f84e24751" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ToonTanks.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToonTanks.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Projectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Projectile.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Tank.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Tank.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Turret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Turret.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/Main.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Main.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/BasePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/BasePawn.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/BasePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/BasePawn.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/HealthComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/HealthComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/HealthComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Projectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Projectile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Projectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Projectile.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Tank.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Tank.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Tank.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Tank.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/ToonTanks.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/ToonTanks.Build.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Turret.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Turret.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Turret.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,7 @@
       <updated>1718291069421</updated>
       <workItem from="1718291070825" duration="16000" />
       <workItem from="1718291270056" duration="39371000" />
-      <workItem from="1718639144892" duration="8108000" />
+      <workItem from="1718639144892" duration="12761000" />
     </task>
     <servers />
   </component>
